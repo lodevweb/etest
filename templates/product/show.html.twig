@@ -1,0 +1,38 @@
+{%  extends 'base.html.twig' %}
+
+{% block title product.name %}
+
+{% block body %}
+    <div class="container mt-4">
+    <div class="card mb-3">
+    <div class="card-header text-white bg-primary ">{{ product.name }} </div>
+    <div class="card-body">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    {%  if product.filename %}
+                        <img src="/../../../public/images/patients/{{ product.filename }}" alt="picture-product" style="width: 80%; height: auto">
+                    {%  endif %}
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title mt-4" > {{ product.name | upper }}</h5>
+                        <p class="card-text mt-4"> Type : {{ product.type }}</p>
+                        <p class="card-text"> Marque : {{ product.brand }}</p>
+                        <p class="card-text"> Genre : {{  product.getGenderType }}</p>
+                        <p class="card-text"> Prix  : {{  product.price }} €</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text"> Taille : séléctionner la taille </p>
+                <p class="card-text"><small class="text-muted"> Quantité en stock : stock selon la taille</small></p>
+                <p>Ajouter au panier</p>
+                <a href="#" class="btn btn-primary" type="button">Ajouter</a>
+            </div>
+        </div>
+{% endblock %}
